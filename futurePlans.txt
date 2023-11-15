@@ -1,9 +1,0 @@
-+ Many pictures
-  > user can add as many pictures as he wants
-
-
-+ Comments 
-  > kaj coffee/product?id= ke naprajme od levo sliki da se redat a od desno komentarite?
-
-
-+ Profile pictures for users (mozhe za sega samo kako field vo User klasot i da se slaga url pri Register)
