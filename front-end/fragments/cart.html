@@ -1,0 +1,177 @@
+<div class="container mt-5">
+    <div class="row">
+<!--        <div class="col-md-1"></div>-->
+        <div class="col-sm-10 col-md-8 col-md-offset-1">
+            <table class="table table-hover border">
+                <thead>
+                <tr>
+                    <th>Продукт</th>
+                    <th>Количина</th>
+                    <th class="text-center">Цена</th>
+                    <th class="text-center">Общо</th>
+                    <th> </th>
+                </tr>
+                </thead>
+                <tbody id="list-orders">
+
+                </tbody>
+            </table>
+        </div>
+<!--        <div class="col-md-1"></div>-->
+        <div class="col-sm-2 col-md-4 col-md-offset-1">
+            <table class="table table-hover border">
+                <thead>
+                    <tr>
+                        <th class="text-center">Артикули общо</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h3 class="text-center">Общо <strong id="order_summary"></strong> лв.</h3>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="text-center">
+                            <button id="order-from-cart" type="button" class="btn btn-success btn-lg">
+                                Поръчай <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="order-success-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="success_close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">Успешно изпълнена поръчка</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;"><div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                    <p class="pt-4" style="text-align:center;">Благодарим Ви!</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="order-error-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="error_close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">В момента някое от кафетата не е налично</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;">
+                    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                        <span class="swal2-x-mark">
+                            <span class="swal2-x-mark-line-left"></span>
+                            <span class="swal2-x-mark-line-right"></span>
+                        </span>
+                    </div>
+                    <p class="pt-4" style="text-align:center;">Моля, проверете.</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="approve-remove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Remove</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Потвръждавате ли, че искате да изтриете запазената поръчка?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Затвори</button>
+                <button id="approve-button" type="button" class="btn btn-danger">Изтрий</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="order-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="max-width: 400px!important;">
+        <div class="modal-content">
+            <div style="background-color: rgba(0,0,0,0.8) !important;" class="page-body">
+                <div>
+                    <button id="close-modal-create" class="link-style-login-modal close mr-2" type="button" data-dismiss="modal">&times;</button>
+                    <div class="card-header">
+                        <h3>Завършете поръчката</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="needs-validation" novalidate>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                </div>
+                                <input id="name" type="text" class="form-control rounded-right" placeholder="Име и презиме" minlength="5" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Името и презимето треба да е над 5 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input id="mail" type="email" class="form-control rounded-right" placeholder="Е-маил" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Воведете валиден меил
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+                                </div>
+                                <input id="mobile-num" type="tel" class="form-control rounded-right" placeholder="Мобилен број" minlength="5" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Мобилниот број треба да е над 5 бројки
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                </div>
+                                <input id="city" type="text" class="form-control rounded-right" placeholder="Град" minlength="3" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Името на град треба да е над 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
+                                </div>
+                                <input id="address" type="text" class="form-control rounded-right" placeholder="Адреса" minlength="3" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Адресата треба да е над 3 букви
+                                </div>
+                            </div>
+                            <button type="click" id="order-button" class="btn btn-success btn-block">Поръчай</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

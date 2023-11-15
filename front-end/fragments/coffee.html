@@ -1,0 +1,249 @@
+<h3 id="intro-coffee-name" class="text-center display-4"></h3>
+<hr class="display-4"/>
+
+<div class="row justify-content-center align-items-center mt-4">
+    <div class="col-4 col-xs-4">
+        <div class="img-container">
+            <span id='span-modal-img' class='zoom'>
+                <img id="modal-img" class="img-responsive">
+            </span>
+        </div>
+        <div data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+            <div id="gallery" class="row py-3 shadow-5">
+
+            </div>
+        </div>
+    </div>
+    <div id="second-column" class="col-4 col-xs-4">
+        <p class="lead" id="lead"></p>
+        <span id="old-price" class="price old-price-modal">
+
+                        </span>
+        <span id="new-price" class="price promo-price-model ml-2">
+
+                        </span>
+        <div id="saving">
+
+        </div>
+        <div class="rating" id="rating-system">
+
+        </div>
+        <p id="add-to-cart">
+            <!--                            <a href="logs-all.html" class="btn btn-dark btn-block">Додади во количката</a>-->
+            <!--                            <button type="click" class="btn btn-dark btn-block">Додади во количката</button>-->
+        </p>
+        <ul class="list-unstyled" style="line-height: 2">
+            <li><span class="fas fa-eye text-dark"></span>&nbsp;&nbsp;Тест и преглед преди плащане</li>
+            <li><span class="fas fa-truck text-dark"></span>&nbsp;&nbsp;Безплатна доставка над 100 лв.</li>
+            <li><span class="fas fa-sync text-dark"></span>&nbsp;&nbsp;10 дена безплатно връщане</li>
+            <li><span class="fa fa-check text-dark"></span> &nbsp;&nbsp;Квалитет и гаранция</li>
+            <li><span class="fas fa-phone-alt text-dark"></span>&nbsp;&nbsp;075 930 288</li>
+        </ul>
+    </div>
+    <div class="col-4 col-xs-4">
+        <div id="order-col" class="well">
+        </div>
+    </div>
+</div>
+
+<section class="content-item mt-5" id="comments">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <form class="add-comment-form" novalidate>
+                        <div class="row">
+                            <div class="input-group">
+                                <textarea class="form-control" id="text" placeholder="Your comment" autocomplete="off" style="margin-right: 15px;" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please, enter a comment
+                                </div>
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <button id="add-comment" type="submit" class="btn btn-success pull-right">Submit</button>
+                    </div>
+                </form>
+
+                <h3 id ="comments-size"></h3>
+
+                <div id="comments-section">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="order-success-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="success_close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">Успешно изпълнена поръчка</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;"><div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                    <p class="pt-4" style="text-align:center;">Благодарим Ви!</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="order-error-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="error_close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">В момента няма налични кафета</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;">
+                    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                        <span class="swal2-x-mark">
+                            <span class="swal2-x-mark-line-left"></span>
+                            <span class="swal2-x-mark-line-right"></span>
+                        </span>
+                    </div>
+                    <p class="pt-4" style="text-align:center;">Моля, опитайте по-късно.</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cart-success" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="cart-success-close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">Успешно додаден продукт во вашата картичката</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;"><div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                    <p class="pt-4" style="text-align:center;">Ви благодариме!</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="login-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="max-width: 400px!important;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div style="background-color: rgba(0,0,0,0.8) !important;" class="page-body">
+                <div>
+                    <button id="close-modal-create" class="link-style-login-modal close mr-2" type="button" data-dismiss="modal">&times;</button>
+                    <div class="card-header">
+                        <h3>Вход</h3>
+                        <div class="d-flex justify-content-end social_icon">
+                            <a href="/oauth2/authorization/facebook"><span><i class="fab fa-facebook-square"></i></span></a>
+                            <a href="/oauth2/authorization/google"><span><i class="fab fa-google-plus-square"></i></span></a>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="needs-validation-login" novalidate>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="username" type="text" class="form-control" placeholder="Потребителско име" required>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="password" type="password" class="form-control" placeholder="Парола" required>
+                            </div>
+                            <div class="row align-items-center remember">
+                                <input id="rememberMe" name="rememberMe" type="checkbox">
+                                <label class="lblRemember" for="rememberMe"> Запомни Ме </label>
+                            </div>
+                            <div class="form-group">
+                                <button id="login-user" type="button" class="btn float-right login_btn">Вход</button>
+                            </div>
+                            <div id="error_login" class="error mb-5" style="color: red;" hidden="true">
+                                <span>Грешно потребителско име или парола.</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            Нямате акаунт?<a id="sign-up-link" href="#">Регистрирай се</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="#">Забравихте паролата?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="payment-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="max-width: 700px!important;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="globalContent">
+                <main>
+                    <section class="container-lg">
+                        <div class="cell example example3" id="example-3">
+                            <form class="payment-form">
+                                <div class="fieldset">
+                                    <input id="example3-name" data-tid="elements_examples.form.name_label" class="field" type="text" placeholder="Имена" required="" autocomplete="name">
+                                    <input id="example3-email" data-tid="elements_examples.form.email_label" class="field half-width" type="email" placeholder="Имейл" required="" autocomplete="email">
+                                    <input id="example3-phone" data-tid="elements_examples.form.phone_label" class="field half-width" type="tel" placeholder="Телефонен номер" required="" autocomplete="tel">
+                                </div>
+                                <div class="fieldset">
+                                    <div id="example3-card-number" class="field empty"></div>
+                                    <div id="example3-card-expiry" class="field empty third-width"></div>
+                                    <div id="example3-card-cvc" class="field empty third-width"></div>
+                                    <input id="example3-zip" data-tid="elements_examples.form.postal_code_placeholder" class="field empty third-width" placeholder="94107">
+                                </div>
+                                <button id="payment-button" type="submit" data-tid="elements_examples.form.pay_button">Плати</button>
+                                <div id="error-payment" class="error" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                                        <path class="base" fill="#000" d="M8.5,17 C3.80557963,17 0,13.1944204 0,8.5 C0,3.80557963 3.80557963,0 8.5,0 C13.1944204,0 17,3.80557963 17,8.5 C17,13.1944204 13.1944204,17 8.5,17 Z"></path>
+                                        <path class="glyph" fill="#FFF" d="M8.5,7.29791847 L6.12604076,4.92395924 C5.79409512,4.59201359 5.25590488,4.59201359 4.92395924,4.92395924 C4.59201359,5.25590488 4.59201359,5.79409512 4.92395924,6.12604076 L7.29791847,8.5 L4.92395924,10.8739592 C4.59201359,11.2059049 4.59201359,11.7440951 4.92395924,12.0760408 C5.25590488,12.4079864 5.79409512,12.4079864 6.12604076,12.0760408 L8.5,9.70208153 L10.8739592,12.0760408 C11.2059049,12.4079864 11.7440951,12.4079864 12.0760408,12.0760408 C12.4079864,11.7440951 12.4079864,11.2059049 12.0760408,10.8739592 L9.70208153,8.5 L12.0760408,6.12604076 C12.4079864,5.79409512 12.4079864,5.25590488 12.0760408,4.92395924 C11.7440951,4.59201359 11.2059049,4.59201359 10.8739592,4.92395924 L8.5,7.29791847 L8.5,7.29791847 Z"></path>
+                                    </svg>
+                                    <span id="error-payment-message" class="message"></span>
+                                </div>
+                            </form>
+                            <div class="success">
+                                <div class="icon">
+                                    <svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <circle class="border" cx="42" cy="42" r="40" stroke-linecap="round" stroke-width="4" stroke="#000" fill="none"></circle>
+                                        <path class="checkmark" stroke-linecap="round" stroke-linejoin="round" d="M23.375 42.5488281 36.8840688 56.0578969 64.891932 28.0500338" stroke-width="4" stroke="#000" fill="none"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="title" data-tid="elements_examples.success.title">Плащането е успешно</h3>
+                                <p class="message"><span data-tid="elements_examples.success.message">Финансови средства не се взети, приложението е все още с тестови цели</span><span class="token" hidden="true">tok_189gMN2eZvKYlo2CwTBv9KKh</span></p>
+                                <a class="reset" href="#">
+                                </a>
+                            </div>
+                            <div class="caption">
+                                <span data-tid="elements_examples.caption.no_charge" class="no-charge">Тестово плащане</span>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/example3.js" data-rel-js></script>

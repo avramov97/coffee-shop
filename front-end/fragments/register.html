@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="css/login-style.css">
+
+<div class="container" style="margin-top: 80px;">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card-registration">
+            <div class="card-header">
+                <h3>Регистрация</h3>
+                <div class="d-flex justify-content-end social_icon">
+<!--                    <span><i class="fab fa-facebook-square"></i></span>-->
+<!--                    <span><i class="fab fa-google-plus-square"></i></span>-->
+<!--                    <span><i class="fab fa-twitter-square"></i></span>-->
+                </div>
+            </div>
+            <div class="card-body">
+            <form class="needs-validation" novalidate>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                    </div>
+                    <input id="firstName" type="text" class="form-control rounded-right" placeholder="Име" minlength="3" maxlength="100" required>
+                    <div class="invalid-feedback">
+                        Името трябва да съдържа минимум 3 букви
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                    </div>
+                    <input id="lastName" type="text" class="form-control rounded-right" placeholder="Презиме" minlength="3" maxlength="100" required>
+                    <div class="invalid-feedback">
+                        Презимето трябва да съдържа минимум 3 букви
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input id="username" type="text" class="form-control rounded-right" placeholder="Потребителско име" minlength="3" maxlength="50" required>
+                    <div class="invalid-feedback">
+                        Потребителското име трябва да съдържа минимум 3 букви
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input id="email" type="email" class="form-control rounded-right" placeholder="Имейл" maxlength="100" required>
+                    <div class="invalid-feedback">
+                        Моля, внесете валиден имейл
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" id="datetimepicker" min="01/02/2022" data-toggle="datetimepicker" class="form-control datetimepicker-input rounded-right" data-target="#datetimepicker" placeholder="Дата на раждане" autocomplete="off" required/>
+                    <div class="invalid-feedback">
+                        Моля, внесете валидна дата на раждане
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" id="password" class="form-control rounded-right" placeholder="Парола" minlength="6" maxlength="20" required>
+                    <div class="invalid-feedback">
+                        Паролата трябва да съдържа минимум 6 букви
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" id="confirmPassword" class="form-control rounded-right" placeholder="Потвърди парола" minlength="6" maxlength="20" required>
+                    <div class="invalid-feedback">
+                        Паролата трябва да съдържа минимум 6 букви
+                    </div>
+                </div>
+                <div class="input-group form-group">
+                    <p id="error_register" class="label m-0" hidden="true"></p>
+                </div>
+                <div class="mt-4 mb-2">
+                    <div class="form-group2">
+                        <a href="#/users/login" class="btn float-left back_login_btn mb-2">Вход</a>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Регистрация" class="btn float-right register_btn mb-2">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'L'
+        });
+    });
+
+</script>

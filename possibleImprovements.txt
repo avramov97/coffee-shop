@@ -1,0 +1,1 @@
++ Eden average rating mesto 2 fields(rating_sum i times_rated)

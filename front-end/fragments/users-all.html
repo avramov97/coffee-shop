@@ -1,0 +1,204 @@
+<div class="d-flex justify-content-center">
+    <h5 id="all-users" class="text-center display-4">Всички потребители</h5>
+</div>
+<hr class="display-4"/>
+
+<div class="container mb-3 mt-3">
+    <table id="example" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Потребителско име</th>
+            <th>Имейл</th>
+            <th>Дата на раждане</th>
+            <th>Операция</th>
+        </tr>
+        </thead>
+        <tbody class="all-users">
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Потребителско име</th>
+            <th>Имейл</th>
+            <th>Дата на раждане</th>
+            <th>Операция</th>
+        </tr>
+        </tfoot>
+    </table>
+
+    <div class="mt-2">
+        <button type="button" id="create_account" class="btn btn-outline-secondary add-new" style="float:left;"><i class="fa fa-user-plus"></i> Създай потребител</button>
+        <button id="refresh-users-button" class="btn btn-outline-info float-right">Презареди</button>
+    </div>
+
+</div>
+
+<div id="edit_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div style="background-color: rgba(0,0,0,0.8) !important;" class="page-body">
+                <div>
+                    <button id="close-modal-edit" class="link-style-login-modal close mr-2" type="button" data-dismiss="modal">&times;</button>
+                    <div class="card-header">
+                        <h3>Промяна на информация</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="editor" class="needs-validation" novalidate>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                </div>
+                                <input id="firstName" type="text" class="form-control rounded-right" placeholder="Име" minlength="3" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Името трябва да съдържа минимум 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                </div>
+                                <input id="lastName" type="text" class="form-control rounded-right" placeholder="Презиме" minlength="3" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Презимето трябва да съдържа минимум 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="username_edit" type="text" class="form-control rounded-right" placeholder="Потребителско име" minlength="3" maxlength="50" readonly="readonly">
+                                <div class="invalid-feedback">
+                                    Потребителското име трябва да съдържа минимум 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input id="email" type="email" class="form-control rounded-right" placeholder="Имейл" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Моля, внесете валиден имейл
+                                </div>
+                            </div>
+                            <div class= "input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                </div>
+                                <input type="text" id="datetimepicker_modal" data-toggle="datetimepicker" class="form-control datetimepicker-input rounded-right" data-target="#datetimepicker_modal" placeholder="Дата на раждане" autocomplete="off" required/>
+                                <div class="invalid-feedback">
+                                    Моля, внесете валидна дата на раждане
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <p id="error_register-edit" class="label m-0" hidden="true"></p>
+                            </div>
+                            <div class="mt-2 mb-2">
+                                <div class="form-group float-right">
+                                    <button id="register-user" class="btn btn-light" type="submit">Запази</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="create_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div style="background-color: rgba(0,0,0,0.8) !important;" class="page-body">
+                <div>
+                    <button id="close-modal-create" class="link-style-login-modal close mr-2" type="button" data-dismiss="modal">&times;</button>
+                    <div class="card-header">
+                        <h3>Създаване на нов потребител</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="create-editor" class="needs-validation-create" novalidate>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                </div>
+                                <input id="first-name-create" type="text" class="form-control rounded-right" placeholder="Име" minlength="3" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Името трябва да съдържа минимум 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                </div>
+                                <input id="last-name-create" type="text" class="form-control rounded-right" placeholder="Презиме" minlength="3" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Презимето трябва да съдържа минимум 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="username-create" type="text" class="form-control rounded-right" placeholder="Потребителско име" minlength="3" maxlength="50" required>
+                                <div class="invalid-feedback">
+                                    Потребителското име трябва да съдържа минимум 3 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input id="email-create" type="email" class="form-control rounded-right" placeholder="Имейл" maxlength="100" required>
+                                <div class="invalid-feedback">
+                                    Моля, внесете валиден имейл
+                                </div>
+                            </div>
+                            <div class= "input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                </div>
+                                <input type="text" id="datetimepicker_modal_create" data-toggle="datetimepicker" class="form-control datetimepicker-input rounded-right" data-target="#datetimepicker_modal_create" placeholder="Дата на раждане" autocomplete="off" required/>
+                                <div class="invalid-feedback">
+                                    Моля, внесете валидна дата на раждане
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" id="password-create" class="form-control rounded-right" placeholder="Парола" minlength="6" maxlength="20" required>
+                                <div class="invalid-feedback">
+                                    Паролата трябва да съдържа минимум 6 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" id="confirm-password-create" class="form-control rounded-right" placeholder="Потвърди парола" minlength="6" maxlength="20" required>
+                                <div class="invalid-feedback">
+                                    Паролата трябва да съдържа минимум 6 букви
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <p id="error_register" class="label m-0" hidden="true"></p>
+                            </div>
+                            <div class="mt-2 mb-2">
+                                <div class="form-group float-right">
+                                    <button id="create-user" class="btn btn-light" type="submit">Създай</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/users-all.js"></script>

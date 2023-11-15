@@ -1,0 +1,411 @@
+    <div class="dropdown">
+        <button id="categories-name" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Категория
+        </button>
+        <div class="dropdown-menu" style="min-width: 0.2rem" aria-labelledby="dropdownMenu2">
+            <h2 class="dropdown-header" style="font-size: 1rem;"><b>Type</b></h2>
+            <a href="#/filter-type?type=CAPSULE" class="dropdown-item" type="button">Капсули</a>
+            <a href="#/filter-type?type=PODS" class="dropdown-item" type="button">Дози</a>
+            <a href="#/filter-type?type=GROUND" class="dropdown-item" type="button">Мляно</a>
+            <a href="#/filter-type?type=BEANS" class="dropdown-item" type="button">Кафе на зърна</a>
+            <a href="#/filter-type?type=INSTANT" class="dropdown-item" type="button">Инстант</a>
+            <div class="dropdown-divider"></div>
+            <h2 class="dropdown-header" style="font-size: 1rem;"><b>Brand</b></h2>
+            <a href="#/filter-brand?brand=illy" class="dropdown-item" type="button">Illy</a>
+            <a href="#/filter-brand?brand=lavazza" class="dropdown-item" type="button">Lavazza</a>
+            <a href="#/filter-brand?brand=dolce" class="dropdown-item" type="button">Dolce Gusto</a>
+        </div>
+    </div>
+<hr class="display-4"/>
+
+<section id="pid" class="container card-container">
+
+</section>
+
+<div id="order-modal" class="modal fade bd-example-modal-xl" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="coffee-name"></h4>
+                <button type="button" class="close" data-dismiss="modal"><span style="color: black;">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-4 col-xs-4">
+                        <div class="img-container">
+                            <span id='span-modal-img' class='zoom'>
+                                <img id="modal-img" class="img-responsive">
+                            </span>
+                        </div>
+                        <div data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+                            <div id="gallery" class="row py-3 shadow-5">
+
+                            </div>
+                        </div>
+                        <!--     <img class="logoicon" src="http://placehold.it/300x300/bbb/&text=Your%20Logo" alt="App Logo"/>-->
+                    </div>
+                    <div id="second-column" class="col-4 col-xs-4">
+                        <p class="lead" id="lead"></p>
+                        <span id="old-price" class="price old-price-modal">
+
+                        </span>
+                        <span id="new-price" class="price promo-price-model ml-2">
+
+                        </span>
+                        <div id="saving">
+
+                        </div>
+                        <div class="rating" id="rating-system">
+
+                        </div>
+                        <p id="add-to-cart">
+<!--                            <a href="logs-all.html" class="btn btn-dark btn-block">Додади во количката</a>-->
+<!--                            <button type="click" class="btn btn-dark btn-block">Додади во количката</button>-->
+                        </p>
+                        <ul class="list-unstyled" style="line-height: 2">
+                            <li><span class="fas fa-eye text-dark"></span>&nbsp;&nbsp;Тест и преглед преди плащане</li>
+                            <li><span class="fas fa-truck text-dark"></span>&nbsp;&nbsp;Безплатна доставка над 100 лв.</li>
+                            <li><span class="fas fa-sync text-dark"></span>&nbsp;&nbsp;10 дена безплатно връщане</li>
+                            <li><span class="fa fa-check text-dark"></span> &nbsp;&nbsp;Квалитет и гаранция</li>
+                            <li><span class="fas fa-phone-alt text-dark"></span>&nbsp;&nbsp;075 930 288</li>
+                        </ul>
+                    </div>
+                    <div class="col-4 col-xs-4">
+                        <div id="order-col" class="well">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="order-success-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="success_close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">Успешно извършена поръчка</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;"><div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                    <p class="pt-4" style="text-align:center;">Благодарим Ви!</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cart-success" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="cart-success-close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">Успешно добавен продукт във вашата количка</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;"><div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                    <p class="pt-4" style="text-align:center;">Благодарим Ви!</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="add_success" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <a id="add_success_close" class="close" href="#" data-dismiss="modal">&times;</a>
+            <div class="page-body">
+                <div class="head">
+                    <h5 style="margin-top:3px;">Успешно добавен продукт</h5>
+                </div>
+                <h1 class="pt-2" style="text-align:center;"><div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                    <p class="pt-4" style="text-align:center;">Благодарим Ви!</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form id="add-coffee" class="add-coffee mt-4" novalidate>
+    <h3 class="text-center display-4">Добави продукт</h3>
+    <hr class="display-4"/>
+    <div class="row bg-light p-2">
+        <!-- Single News Area -->
+        <div class="col-2"></div>
+        <div class="col-4 mb-30">
+            <!-- Blog Content -->
+            <div class="blog-content">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="name" autocomplete="off" placeholder="Име на кафето" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fas fa-coffee"></i></div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Въведи име
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mt-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="img1" autocomplete="off" placeholder="Снимка на кафето 1" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fas fa-image"></i></div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Въведи 1 линк на снимката
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mt-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="img2" autocomplete="off" placeholder="Снимка на кафето 2" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fas fa-image"></i></div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Въведи 2 линк на снимката
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mt-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="img3" autocomplete="off" placeholder="Снимка на кафето 3" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fas fa-image"></i></div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Въведи 3 линк на снимката
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mt-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="img4" autocomplete="off" placeholder="Снимка на кафето 4" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fas fa-image"></i></div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Въведи 4 линк на снимката
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mt-3">
+                        <div class="input-group">
+                            <textarea rows="4" class="form-control" id="description" autocomplete="off" placeholder="Описание" required></textarea>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fas fa-edit"></i></div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Въведи описание на кафето
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <ul class="list-group list-group-flush">
+                <div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="input-group">
+                                <select class="form-control" id="type" autocomplete="off" required>
+                                    <option value="CAPSULE">Капсули</option>
+                                    <option value="PODS">Дози</option>
+                                    <option value="GROUND">Мляно</option>
+                                    <option value="BEANS">Зръна</option>
+                                    <option value="INSTANT">Инстант</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Въведи тип
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="quantity" placeholder="Количина" autocomplete="off" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fab fa-gulp"></i></div>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Въведи количина
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="old_price_input" placeholder="Стара цена" autocomplete="off" min="0" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fas fa-comment-dollar"></i></div>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Въведи стара цена
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="new_price_input" placeholder="Нова цена" autocomplete="off" min="0" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Въведи нова цена
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="r_availability_input" placeholder="Налични" autocomplete="off" min="0" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fas fa-sort-numeric-up-alt"></i></div>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Въведи колко налични кафета има
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="availability_input" placeholder=" Реално Останати" autocomplete="off" min="0" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fas fa-sort-numeric-down"></i></div>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Въведи колку налични кафета има
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="add_coffee" class="btn btn-dark float-right mt-3" type="submit">Сподели</button>
+                </div>
+            </ul>
+        </div>
+    </div>
+</form>
+
+
+<div id="login-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="max-width: 400px!important;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div style="background-color: rgba(0,0,0,0.8) !important;" class="page-body">
+                <div>
+                    <button id="close-modal-create" class="link-style-login-modal close mr-2" type="button" data-dismiss="modal">&times;</button>
+                    <div class="card-header">
+                        <h3>Вход</h3>
+                        <div class="d-flex justify-content-end social_icon">
+                            <a href="/oauth2/authorization/facebook"><span><i class="fab fa-facebook-square"></i></span></a>
+                            <a href="/oauth2/authorization/google"><span><i class="fab fa-google-plus-square"></i></span></a>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="needs-validation-login" novalidate>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="username" type="text" class="form-control" placeholder="Потребителско име" required>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="password" type="password" class="form-control" placeholder="Парола" required>
+                            </div>
+                            <div class="row align-items-center remember">
+                                <input id="rememberMe" name="rememberMe" type="checkbox">
+                                <label class="lblRemember" for="rememberMe"> Запомни Ме </label>
+                            </div>
+                            <div class="form-group" id="button-div">
+<!--                                <button type="button" class="btn float-right login_btn">Login</button>-->
+                            </div>
+                            <div id="error_login" class="error mb-5" style="color: red;" hidden="true">
+                                <span>Грешно име или парола.</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            Нямате акаунт?<a id="sign-up-link" href="#">Регистрирай се</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="#">Забрави паролата?</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="order-error-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <a id="error_close" class="close" href="#" data-dismiss="modal">&times;</a>
+                <div class="page-body">
+                    <div class="head">
+                        <h5 style="margin-top:3px;">В момента няма налични кафета</h5>
+                    </div>
+                    <h1 class="pt-2" style="text-align:center;">
+                        <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                        <span class="swal2-x-mark">
+                            <span class="swal2-x-mark-line-left"></span>
+                            <span class="swal2-x-mark-line-right"></span>
+                        </span>
+                        </div>
+                        <p class="pt-4" style="text-align:center;">Моля, опитайте по-късно.</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/cards-logic.js"></script>

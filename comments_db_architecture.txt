@@ -1,0 +1,17 @@
+comments
+ - user_id
+ - coffee_id
+ - comment
+ - date
+ - likes
+
+coffee
+ - name
+ - price
+ - availability
+ .
+ .
+ .
+ - comment_id 
+
+coffee:comment = 1 : M
